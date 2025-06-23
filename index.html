@@ -495,11 +495,15 @@
             padding: 32px;
             text-align: center;
             transition: all 0.3s ease;
+            text-decoration: none;
+            color: inherit;
+            display: block;
         }
 
         .consultation-card:hover {
             border-color: var(--gray-600);
             transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
         }
 
         .consultation-card h4 {
@@ -924,21 +928,21 @@
 
             <div class="consultation-options">
                 <div class="consultation-grid">
-                    <div class="consultation-card">
+                    <a href="https://calendly.com/simardeep-singh-/30min" class="consultation-card" target="_blank">
                         <h4>Discovery Call</h4>
                         <p>30-minute consultation to discuss your infrastructure challenges and goals.</p>
                         <div class="consultation-price">Free</div>
-                    </div>
-                    <div class="consultation-card">
+                    </a>
+                    <a href="mailto:simardeep.oberoi@gmail.com?subject=Technical%20Assessment%20Inquiry&body=Hi%20Simardeep,%0A%0AI'm%20interested%20in%20a%20comprehensive%20technical%20assessment%20of%20our%20current%20infrastructure.%20Please%20let%20me%20know%20your%20availability%20and%20pricing.%0A%0AThanks!" class="consultation-card">
                         <h4>Technical Assessment</h4>
                         <p>Comprehensive review of your current systems with detailed recommendations.</p>
                         <div class="consultation-price">Contact for pricing</div>
-                    </div>
-                    <div class="consultation-card">
+                    </a>
+                    <a href="mailto:simardeep.oberoi@gmail.com?subject=Implementation%20Support%20Inquiry&body=Hi%20Simardeep,%0A%0AI'm%20interested%20in%20hands-on%20consulting%20support%20for%20our%20platform%20migration%20and%20DevSecOps%20transformation.%20Let's%20discuss%20project%20details.%0A%0AThanks!" class="consultation-card">
                         <h4>Implementation Support</h4>
                         <p>Hands-on consulting for platform migration and DevSecOps transformation.</p>
                         <div class="consultation-price">Project-based</div>
-                    </div>
+                    </a>
                 </div>
             </div>
 
