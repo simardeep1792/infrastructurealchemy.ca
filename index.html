@@ -1,0 +1,1024 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simardeep Singh</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --black: #000000;
+            --white: #ffffff;
+            --gray-50: #fafafa;
+            --gray-100: #f5f5f5;
+            --gray-200: #e5e5e5;
+            --gray-300: #d4d4d4;
+            --gray-400: #a3a3a3;
+            --gray-500: #737373;
+            --gray-600: #525252;
+            --gray-700: #404040;
+            --gray-800: #262626;
+            --gray-900: #171717;
+            --accent: #007aff;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.5;
+            color: var(--black);
+            background: var(--white);
+            font-weight: 400;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* Typography */
+        h1, h2, h3 {
+            font-weight: 600;
+            letter-spacing: -0.02em;
+        }
+
+        .hero-title {
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            font-weight: 700;
+            letter-spacing: -0.04em;
+            line-height: 1.1;
+        }
+
+        .hero-subtitle {
+            font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+            font-weight: 400;
+            color: var(--gray-600);
+            margin-top: 1rem;
+        }
+
+        .section-title {
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 700;
+            letter-spacing: -0.03em;
+            line-height: 1.2;
+        }
+
+        /* Layout */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        .wide-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Navigation */
+        .nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--gray-200);
+            z-index: 1000;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .nav-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 60px;
+        }
+
+        .logo {
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: var(--black);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 32px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--gray-600);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 400;
+            transition: color 0.2s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--black);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 120px 0 80px;
+        }
+
+        .hero-content {
+            max-width: 800px;
+        }
+
+        .hero-cta {
+            margin-top: 48px;
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 24px;
+            border-radius: 12px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            text-decoration: none;
+            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background: var(--black);
+            color: var(--white);
+        }
+
+        .btn-primary:hover {
+            background: var(--gray-800);
+            transform: translateY(-1px);
+        }
+
+        .btn-secondary {
+            background: var(--gray-100);
+            color: var(--black);
+        }
+
+        .btn-secondary:hover {
+            background: var(--gray-200);
+            transform: translateY(-1px);
+        }
+
+        /* Sections */
+        .section {
+            padding: 120px 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 80px;
+        }
+
+        .section-description {
+            font-size: 1.125rem;
+            color: var(--gray-600);
+            margin-top: 16px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Services Grid */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 24px;
+        }
+
+        .service-card {
+            padding: 40px 32px;
+            border: 1px solid var(--gray-200);
+            border-radius: 20px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            background: var(--white);
+        }
+
+        .service-card:hover {
+            border-color: var(--gray-300);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+            transform: translateY(-4px);
+        }
+
+        .service-icon {
+            width: 48px;
+            height: 48px;
+            background: var(--gray-100);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 24px;
+            font-size: 20px;
+            color: var(--gray-700);
+        }
+
+        .service-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 12px;
+            color: var(--black);
+        }
+
+        .service-description {
+            color: var(--gray-600);
+            line-height: 1.6;
+        }
+
+        /* Expertise Section */
+        .expertise {
+            background: var(--gray-50);
+        }
+
+        .expertise-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 32px;
+        }
+
+        .expertise-item {
+            text-align: center;
+            padding: 32px 16px;
+        }
+
+        .expertise-icon {
+            width: 64px;
+            height: 64px;
+            background: var(--white);
+            border: 1px solid var(--gray-200);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 24px;
+            color: var(--gray-700);
+        }
+
+        .expertise-title {
+            font-size: 1.125rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: var(--black);
+        }
+
+        .expertise-description {
+            font-size: 0.9rem;
+            color: var(--gray-600);
+        }
+
+        /* Testimonials */
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 32px;
+        }
+
+        .testimonial-card {
+            background: var(--white);
+            border: 1px solid var(--gray-200);
+            border-radius: 20px;
+            padding: 40px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .testimonial-card:hover {
+            border-color: var(--gray-300);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+            transform: translateY(-4px);
+        }
+
+        .testimonial-content {
+            margin-bottom: 32px;
+        }
+
+        .testimonial-content p {
+            font-size: 1.125rem;
+            line-height: 1.7;
+            color: var(--gray-700);
+            font-style: italic;
+            position: relative;
+        }
+
+        .testimonial-content p::before {
+            content: '"';
+            font-size: 4rem;
+            color: var(--gray-300);
+            position: absolute;
+            left: -20px;
+            top: -10px;
+            font-family: Georgia, serif;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .author-name {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--black);
+        }
+
+        /* About Section */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .about-text {
+            font-size: 1.125rem;
+            line-height: 1.7;
+            color: var(--gray-700);
+        }
+
+        .about-text + .about-text {
+            margin-top: 24px;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+        }
+
+        .stat-card {
+            text-align: center;
+            padding: 32px;
+            background: var(--gray-50);
+            border-radius: 16px;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--black);
+            margin-bottom: 8px;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            color: var(--gray-600);
+            font-weight: 500;
+        }
+
+        /* Contact Section */
+        .contact {
+            background: var(--black);
+            color: var(--white);
+        }
+
+        .contact .section-title {
+            color: var(--white);
+        }
+
+        .contact .section-description {
+            color: var(--gray-400);
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 48px;
+            margin: 48px 0;
+            flex-wrap: wrap;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 1rem;
+            color: var(--gray-300);
+        }
+
+        .contact-item i {
+            font-size: 18px;
+            color: var(--gray-500);
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            margin-top: 40px;
+        }
+
+        .social-link {
+            width: 48px;
+            height: 48px;
+            background: var(--gray-800);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--gray-400);
+            text-decoration: none;
+            font-size: 18px;
+            transition: all 0.2s ease;
+        }
+
+        .social-link:hover {
+            background: var(--gray-700);
+            color: var(--white);
+            transform: translateY(-2px);
+        }
+
+        .contact-cta {
+            margin-top: 48px;
+            text-align: center;
+        }
+
+        .contact .btn-primary {
+            background: var(--white);
+            color: var(--black);
+        }
+
+        .contact .btn-primary:hover {
+            background: var(--gray-100);
+        }
+
+        .contact .btn-secondary {
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--white);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .contact .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        /* Consultation Options */
+        .consultation-options {
+            margin: 48px 0;
+        }
+
+        .consultation-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+            margin-top: 32px;
+        }
+
+        .consultation-card {
+            background: var(--gray-800);
+            border: 1px solid var(--gray-700);
+            border-radius: 16px;
+            padding: 32px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .consultation-card:hover {
+            border-color: var(--gray-600);
+            transform: translateY(-2px);
+        }
+
+        .consultation-card h4 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--white);
+            margin-bottom: 12px;
+        }
+
+        .consultation-card p {
+            color: var(--gray-400);
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        .consultation-price {
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: var(--gray-200);
+            padding: 8px 16px;
+            background: var(--gray-700);
+            border-radius: 8px;
+            display: inline-block;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--gray-900);
+            color: var(--gray-500);
+            text-align: center;
+            padding: 32px 0;
+            font-size: 0.875rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero {
+                padding: 100px 0 60px;
+            }
+
+            .section {
+                padding: 80px 0;
+            }
+
+            .about-grid {
+                grid-template-columns: 1fr;
+                gap: 48px;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-info {
+                flex-direction: column;
+                gap: 24px;
+            }
+
+            .consultation-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-cta {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .btn {
+                width: 100%;
+                max-width: 280px;
+                justify-content: center;
+            }
+        }
+
+        /* Smooth animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Scroll indicator */
+        .scroll-indicator {
+            position: absolute;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            color: var(--gray-500);
+            font-size: 0.8rem;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); }
+            40% { transform: translateX(-50%) translateY(-10px); }
+            60% { transform: translateX(-50%) translateY(-5px); }
+        }
+    </style>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="container">
+            <div class="nav-content">
+                <a href="#home" class="logo">Simardeep Singh</a>
+                <ul class="nav-links">
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#expertise">Expertise</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="https://medium.com/@simardeep.oberoi" target="_blank">Articles</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">Infrastructure Alchemy</h1>
+                <p class="hero-subtitle">
+                    Transforming enterprise systems with Kubernetes, multi-cloud platforms, 
+                    and secure DevSecOps for mission-critical environments.
+                </p>
+                <div class="hero-cta">
+                    <a href="https://calendly.com/simardeep-singh-/30min" class="btn btn-primary" target="_blank">
+                        <i class="fas fa-calendar-alt"></i>
+                        Schedule Consultation
+                    </a>
+                    <a href="https://medium.com/@simardeep.oberoi" class="btn btn-secondary" target="_blank">
+                        <i class="fab fa-medium"></i>
+                        Read Articles
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <span>Scroll</span>
+            <i class="fas fa-arrow-down"></i>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="section" id="services">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Services</h2>
+                <p class="section-description">
+                    Comprehensive cloud and DevSecOps solutions for enterprise and government organizations
+                </p>
+            </div>
+            
+            <div class="services-grid">
+                <div class="service-card fade-in">
+                    <div class="service-icon">
+                        <i class="fas fa-cloud"></i>
+                    </div>
+                    <h3 class="service-title">Multi-Cloud Platform Engineering</h3>
+                    <p class="service-description">
+                        Design and implement scalable Kubernetes platforms across AWS, GCP, and Azure with 
+                        GitOps patterns and zero-trust security.
+                    </p>
+                </div>
+
+                <div class="service-card fade-in">
+                    <div class="service-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3 class="service-title">DevSecOps Automation</h3>
+                    <p class="service-description">
+                        Implement comprehensive DevSecOps pipelines with NIST 800-53 compliance, 
+                        supply chain security, and automated workflows.
+                    </p>
+                </div>
+
+                <div class="service-card fade-in">
+                    <div class="service-icon">
+                        <i class="fas fa-exchange-alt"></i>
+                    </div>
+                    <h3 class="service-title">Data Integration</h3>
+                    <p class="service-description">
+                        Build federated data systems with real-time cross-jurisdictional exchange 
+                        and standards-aligned architectures.
+                    </p>
+                </div>
+
+                <div class="service-card fade-in">
+                    <div class="service-icon">
+                        <i class="fas fa-cogs"></i>
+                    </div>
+                    <h3 class="service-title">Infrastructure Modernization</h3>
+                    <p class="service-description">
+                        Migrate legacy systems to cloud-native architectures with container 
+                        orchestration and automated CI/CD pipelines.
+                    </p>
+                </div>
+
+                <div class="service-card fade-in">
+                    <div class="service-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3 class="service-title">Team Enablement</h3>
+                    <p class="service-description">
+                        Establish enablement communities, deliver training, and create reusable 
+                        templates for platform adoption.
+                    </p>
+                </div>
+
+                <div class="service-card fade-in">
+                    <div class="service-icon">
+                        <i class="fas fa-balance-scale"></i>
+                    </div>
+                    <h3 class="service-title">Compliance & Governance</h3>
+                    <p class="service-description">
+                        Navigate complex regulatory requirements including ATO processes and 
+                        enterprise security frameworks.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Expertise Section -->
+    <section class="section expertise" id="expertise">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Expertise</h2>
+                <p class="section-description">
+                    Deep specialization in cutting-edge cloud technologies and enterprise platforms
+                </p>
+            </div>
+            
+            <div class="expertise-grid">
+                <div class="expertise-item fade-in">
+                    <div class="expertise-icon">
+                        <i class="fab fa-docker"></i>
+                    </div>
+                    <h3 class="expertise-title">Kubernetes</h3>
+                    <p class="expertise-description">CKS, CKA, CKAD certified. Multi-cluster architectures.</p>
+                </div>
+
+                <div class="expertise-item fade-in">
+                    <div class="expertise-icon">
+                        <i class="fas fa-cloud"></i>
+                    </div>
+                    <h3 class="expertise-title">Multi-Cloud</h3>
+                    <p class="expertise-description">AWS, GCP, Azure platform enablement.</p>
+                </div>
+
+                <div class="expertise-item fade-in">
+                    <div class="expertise-icon">
+                        <i class="fas fa-code-branch"></i>
+                    </div>
+                    <h3 class="expertise-title">GitOps</h3>
+                    <p class="expertise-description">ArgoCD, Flux, policy-as-code patterns.</p>
+                </div>
+
+                <div class="expertise-item fade-in">
+                    <div class="expertise-icon">
+                        <i class="fas fa-database"></i>
+                    </div>
+                    <h3 class="expertise-title">Data Engineering</h3>
+                    <p class="expertise-description">Real-time pipelines, federated data flows.</p>
+                </div>
+
+                <div class="expertise-item fade-in">
+                    <div class="expertise-icon">
+                        <i class="fas fa-lock"></i>
+                    </div>
+                    <h3 class="expertise-title">Security</h3>
+                    <p class="expertise-description">Zero Trust, Cilium, supply chain security.</p>
+                </div>
+
+                <div class="expertise-item fade-in">
+                    <div class="expertise-icon">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <h3 class="expertise-title">Automation</h3>
+                    <p class="expertise-description">GitHub Actions, Terraform, OIDC workflows.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">What Leaders Say</h2>
+                <p class="section-description">
+                    Trusted by senior executives and technical leaders across government and enterprise
+                </p>
+            </div>
+            
+            <div class="testimonials-grid">
+                <div class="testimonial-card fade-in">
+                    <div class="testimonial-content">
+                        <p>"Rarely I meet a person like Simardeep. He has a thorough understanding of data engineering, high-performance computing, modern cloud deployment with K8s. Being working in this industry 30 years at various positions, large projects, international corporations, governments, and startups on 3 major continents, he is highly recommended."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-info">
+                            <div class="author-name">Nghia Doan</div>
+                            <div class="author-title">Technology Pioneer, PHAC</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card fade-in">
+                    <div class="testimonial-content">
+                        <p>"Simardeep is an exceptional engineer who directly supported several teams in the rapid development and delivery of data systems to support public health. He was always professional, disciplined, and focused on delivery."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-info">
+                            <div class="author-name">Chris Allison</div>
+                            <div class="author-title">Director General, PHAC</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card fade-in">
+                    <div class="testimonial-content">
+                        <p>"I've never seen anyone embrace and embody 'constant improvement' like Simardeep. Talented, kind, and professional, I've complete confidence on his skills to target complex projects."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-info">
+                            <div class="author-name">Dr. Andrés Solís Montero</div>
+                            <div class="author-title">Lead Data Scientist, Statistics Canada</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="section expertise" id="about">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">About</h2>
+            </div>
+            
+            <div class="about-grid">
+                <div>
+                    <p class="about-text">
+                        Strategic Cloud & DevOps Engineer with 8+ years of experience delivering secure, 
+                        scalable infrastructure across the Canadian public sector.
+                    </p>
+                    
+                    <p class="about-text">
+                        Currently co-leading the Aurora Kubernetes Platform at Shared Services Canada, 
+                        supporting mission-critical systems that serve over 40 million Canadians.
+                    </p>
+
+                    <p class="about-text">
+                        Masters in Digital Transformation & Innovation with 6 professional cloud 
+                        and Kubernetes certifications.
+                    </p>
+                </div>
+
+                <div class="stats-grid">
+                    <div class="stat-card fade-in">
+                        <div class="stat-number">8+</div>
+                        <div class="stat-label">Years Experience</div>
+                    </div>
+                    <div class="stat-card fade-in">
+                        <div class="stat-number">40M+</div>
+                        <div class="stat-label">Canadians Served</div>
+                    </div>
+                    <div class="stat-card fade-in">
+                        <div class="stat-number">150+</div>
+                        <div class="stat-label">Engineers Enabled</div>
+                    </div>
+                    <div class="stat-card fade-in">
+                        <div class="stat-number">6</div>
+                        <div class="stat-label">Certifications</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="section contact" id="contact">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Get Started</h2>
+                <p class="section-description">
+                    Ready to transform your infrastructure? Let's discuss how strategic cloud 
+                    consulting can accelerate your digital transformation.
+                </p>
+            </div>
+
+            <div class="contact-info">
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <span>simardeep.oberoi@gmail.com</span>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>Ottawa, Ontario</span>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-calendar-alt"></i>
+                    <span>Book consultation via Calendly</span>
+                </div>
+            </div>
+
+            <div class="consultation-options">
+                <div class="consultation-grid">
+                    <div class="consultation-card">
+                        <h4>Discovery Call</h4>
+                        <p>30-minute consultation to discuss your infrastructure challenges and goals.</p>
+                        <div class="consultation-price">Free</div>
+                    </div>
+                    <div class="consultation-card">
+                        <h4>Technical Assessment</h4>
+                        <p>Comprehensive review of your current systems with detailed recommendations.</p>
+                        <div class="consultation-price">Contact for pricing</div>
+                    </div>
+                    <div class="consultation-card">
+                        <h4>Implementation Support</h4>
+                        <p>Hands-on consulting for platform migration and DevSecOps transformation.</p>
+                        <div class="consultation-price">Project-based</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="social-links">
+                <a href="https://www.linkedin.com/in/simardeep--singh/" class="social-link" target="_blank" title="LinkedIn Profile">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+                <a href="https://github.com/simardeep1792" class="social-link" target="_blank" title="GitHub Profile">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="https://medium.com/@simardeep.oberoi" class="social-link" target="_blank" title="Medium Articles">
+                    <i class="fab fa-medium"></i>
+                </a>
+                <a href="https://credly.com/users/simardeep-singh.10dd73b3" class="social-link" target="_blank" title="Professional Certifications">
+                    <i class="fas fa-certificate"></i>
+                </a>
+            </div>
+
+            <div class="contact-cta">
+                <a href="https://calendly.com/simardeep-singh-/30min" class="btn btn-primary" target="_blank">
+                    <i class="fas fa-calendar-alt"></i>
+                    Schedule Free Discovery Call
+                </a>
+                <a href="mailto:simardeep.oberoi@gmail.com?subject=Consulting%20Inquiry" class="btn btn-secondary">
+                    <i class="fas fa-paper-plane"></i>
+                    Send Message
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Simardeep Singh. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Fade in animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Hide scroll indicator after scrolling
+        window.addEventListener('scroll', function() {
+            const scrollIndicator = document.querySelector('.scroll-indicator');
+            if (window.scrollY > 100) {
+                scrollIndicator.style.opacity = '0';
+            } else {
+                scrollIndicator.style.opacity = '1';
+            }
+        });
+    </script>
+</body>
+</html>
