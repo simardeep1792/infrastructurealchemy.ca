@@ -495,13 +495,29 @@
             padding: 32px;
             text-align: center;
             transition: all 0.3s ease;
-            cursor: pointer;
         }
 
         .consultation-card:hover {
             border-color: var(--gray-600);
             transform: translateY(-2px);
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .consultation-btn {
+            display: inline-block;
+            margin-top: 16px;
+            padding: 10px 20px;
+            background: var(--white);
+            color: var(--black);
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .consultation-btn:hover {
+            background: var(--gray-200);
+            transform: translateY(-1px);
         }
 
         .consultation-card h4 {
@@ -917,30 +933,6 @@
                 <div class="contact-item">
                     <i class="fas fa-map-marker-alt"></i>
                     <span>Ottawa, Ontario</span>
-                </div>
-                <div class="contact-item">
-                    <i class="fas fa-calendar-alt"></i>
-                    <span>Book consultation via Calendly</span>
-                </div>
-            </div>
-
-            <div class="consultation-options">
-                <div class="consultation-grid">
-                    <div class="consultation-card" onclick="window.open('https://calendly.com/simardeep-singh-/30min', '_blank')">
-                        <h4>Discovery Call</h4>
-                        <p>30-minute consultation to discuss your infrastructure challenges and goals.</p>
-                        <div class="consultation-price">Free</div>
-                    </div>
-                    <div class="consultation-card" onclick="window.location.href='mailto:simardeep.oberoi@gmail.com?subject=Technical Assessment Inquiry&body=Hi Simardeep,%0D%0A%0D%0AI am interested in a comprehensive technical assessment of our current infrastructure. Please let me know your availability and pricing.%0D%0A%0D%0AThanks!'">
-                        <h4>Technical Assessment</h4>
-                        <p>Comprehensive review of your current systems with detailed recommendations.</p>
-                        <div class="consultation-price">Contact for pricing</div>
-                    </div>
-                    <div class="consultation-card" onclick="window.location.href='mailto:simardeep.oberoi@gmail.com?subject=Implementation Support Inquiry&body=Hi Simardeep,%0D%0A%0D%0AI am interested in hands-on consulting support for platform migration and DevSecOps transformation. Let us discuss project details.%0D%0A%0D%0AThanks!'">
-                        <h4>Implementation Support</h4>
-                        <p>Hands-on consulting for platform migration and DevSecOps transformation.</p>
-                        <div class="consultation-price">Project-based</div>
-                    </div>
                 </div>
             </div>
 
