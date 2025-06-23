@@ -124,11 +124,65 @@
             justify-content: center;
             text-align: center;
             padding: 120px 0 80px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, transparent 0%, var(--gray-50) 100%);
+            z-index: -1;
         }
 
         .hero-content {
             max-width: 800px;
+            position: relative;
+            z-index: 2;
         }
+
+        .tech-logos {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 48px;
+            margin-top: 64px;
+            opacity: 0.6;
+            flex-wrap: wrap;
+        }
+
+        .tech-logo {
+            width: 48px;
+            height: 48px;
+            background: var(--white);
+            border: 1px solid var(--gray-200);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            color: var(--gray-600);
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+
+        .tech-logo:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+            opacity: 1;
+        }
+
+        .tech-logo.kubernetes { color: #326ce5; }
+        .tech-logo.aws { color: #ff9900; }
+        .tech-logo.gcp { color: #4285f4; }
+        .tech-logo.azure { color: #0078d4; }
+        .tech-logo.docker { color: #2496ed; }
+        .tech-logo.python { color: #3776ab; }
+        .tech-logo.code { color: #6f42c1; }
 
         .hero-cta {
             margin-top: 48px;
@@ -248,6 +302,16 @@
         .expertise-item {
             text-align: center;
             padding: 32px 16px;
+            transition: all 0.3s ease;
+        }
+
+        .expertise-item:hover {
+            transform: translateY(-4px);
+        }
+
+        .expertise-item:hover .expertise-icon {
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+            transform: translateY(-2px);
         }
 
         .expertise-icon {
@@ -262,7 +326,16 @@
             margin: 0 auto 20px;
             font-size: 24px;
             color: var(--gray-700);
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
         }
+
+        .expertise-icon.kubernetes { color: #326ce5; }
+        .expertise-icon.cloud { color: #4285f4; }
+        .expertise-icon.gitops { color: #f05032; }
+        .expertise-icon.data { color: #ff6b35; }
+        .expertise-icon.security { color: #28a745; }
+        .expertise-icon.automation { color: #6f42c1; }
 
         .expertise-title {
             font-size: 1.125rem;
@@ -506,6 +579,16 @@
                 max-width: 280px;
                 justify-content: center;
             }
+
+            .tech-logos {
+                gap: 24px;
+            }
+
+            .tech-logo {
+                width: 40px;
+                height: 40px;
+                font-size: 20px;
+            }
         }
 
         .fade-in {
@@ -574,6 +657,27 @@
                         <i class="fab fa-medium"></i>
                         Read Articles
                     </a>
+                </div>
+
+                <div class="tech-logos">
+                    <div class="tech-logo aws" title="Amazon Web Services">
+                        <i class="fab fa-aws"></i>
+                    </div>
+                    <div class="tech-logo docker" title="Docker">
+                        <i class="fab fa-docker"></i>
+                    </div>
+                    <div class="tech-logo gcp" title="Google Cloud Platform">
+                        <i class="fab fa-google"></i>
+                    </div>
+                    <div class="tech-logo azure" title="Microsoft Azure">
+                        <i class="fab fa-microsoft"></i>
+                    </div>
+                    <div class="tech-logo python" title="Python">
+                        <i class="fab fa-python"></i>
+                    </div>
+                    <div class="tech-logo code" title="Development">
+                        <i class="fas fa-code"></i>
+                    </div>
                 </div>
             </div>
         </div>
@@ -673,7 +777,7 @@
             
             <div class="expertise-grid">
                 <div class="expertise-item fade-in">
-                    <div class="expertise-icon">
+                    <div class="expertise-icon kubernetes">
                         <i class="fab fa-docker"></i>
                     </div>
                     <h3 class="expertise-title">Kubernetes</h3>
@@ -681,7 +785,7 @@
                 </div>
 
                 <div class="expertise-item fade-in">
-                    <div class="expertise-icon">
+                    <div class="expertise-icon cloud">
                         <i class="fas fa-cloud"></i>
                     </div>
                     <h3 class="expertise-title">Multi-Cloud</h3>
@@ -689,7 +793,7 @@
                 </div>
 
                 <div class="expertise-item fade-in">
-                    <div class="expertise-icon">
+                    <div class="expertise-icon gitops">
                         <i class="fas fa-code-branch"></i>
                     </div>
                     <h3 class="expertise-title">GitOps</h3>
@@ -697,7 +801,7 @@
                 </div>
 
                 <div class="expertise-item fade-in">
-                    <div class="expertise-icon">
+                    <div class="expertise-icon data">
                         <i class="fas fa-database"></i>
                     </div>
                     <h3 class="expertise-title">Data Engineering</h3>
@@ -705,7 +809,7 @@
                 </div>
 
                 <div class="expertise-item fade-in">
-                    <div class="expertise-icon">
+                    <div class="expertise-icon security">
                         <i class="fas fa-lock"></i>
                     </div>
                     <h3 class="expertise-title">Security</h3>
@@ -713,7 +817,7 @@
                 </div>
 
                 <div class="expertise-item fade-in">
-                    <div class="expertise-icon">
+                    <div class="expertise-icon automation">
                         <i class="fas fa-robot"></i>
                     </div>
                     <h3 class="expertise-title">Automation</h3>
