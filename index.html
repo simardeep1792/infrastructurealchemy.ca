@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Simardeep Singh</title>
+    <title>Infrastructure Alchemy - Simardeep Singh</title>
     <style>
         * {
             margin: 0;
@@ -24,7 +24,6 @@
             --gray-700: #404040;
             --gray-800: #262626;
             --gray-900: #171717;
-            --accent: #007aff;
         }
 
         html {
@@ -41,7 +40,6 @@
             -moz-osx-font-smoothing: grayscale;
         }
 
-        /* Typography */
         h1, h2, h3 {
             font-weight: 600;
             letter-spacing: -0.02em;
@@ -68,20 +66,12 @@
             line-height: 1.2;
         }
 
-        /* Layout */
         .container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 24px;
         }
 
-        .wide-container {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 0 24px;
-        }
-
-        /* Navigation */
         .nav {
             position: fixed;
             top: 0;
@@ -127,7 +117,6 @@
             color: var(--black);
         }
 
-        /* Hero Section */
         .hero {
             min-height: 100vh;
             display: flex;
@@ -149,7 +138,6 @@
             flex-wrap: wrap;
         }
 
-        /* Buttons */
         .btn {
             display: inline-flex;
             align-items: center;
@@ -184,7 +172,6 @@
             transform: translateY(-1px);
         }
 
-        /* Sections */
         .section {
             padding: 120px 0;
         }
@@ -203,7 +190,6 @@
             margin-right: auto;
         }
 
-        /* Services Grid */
         .services-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -249,7 +235,6 @@
             line-height: 1.6;
         }
 
-        /* Expertise Section */
         .expertise {
             background: var(--gray-50);
         }
@@ -291,7 +276,6 @@
             color: var(--gray-600);
         }
 
-        /* Testimonials */
         .testimonials-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -334,19 +318,17 @@
             font-family: Georgia, serif;
         }
 
-        .testimonial-author {
-            display: flex;
-            align-items: center;
-            gap: 16px;
-        }
-
         .author-name {
             font-size: 1rem;
             font-weight: 600;
             color: var(--black);
         }
 
-        /* About Section */
+        .author-title {
+            font-size: 0.9rem;
+            color: var(--gray-600);
+        }
+
         .about-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -390,7 +372,6 @@
             font-weight: 500;
         }
 
-        /* Contact Section */
         .contact {
             background: var(--black);
             color: var(--white);
@@ -455,6 +436,10 @@
         .contact-cta {
             margin-top: 48px;
             text-align: center;
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
         }
 
         .contact .btn-primary {
@@ -476,74 +461,6 @@
             background: rgba(255, 255, 255, 0.2);
         }
 
-        /* Consultation Options */
-        .consultation-options {
-            margin: 48px 0;
-        }
-
-        .consultation-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 24px;
-            margin-top: 32px;
-        }
-
-        .consultation-card {
-            background: var(--gray-800);
-            border: 1px solid var(--gray-700);
-            border-radius: 16px;
-            padding: 32px;
-            text-align: center;
-            transition: all 0.3s ease;
-        }
-
-        .consultation-card:hover {
-            border-color: var(--gray-600);
-            transform: translateY(-2px);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-        }
-
-        .consultation-btn {
-            display: inline-block;
-            margin-top: 16px;
-            padding: 10px 20px;
-            background: var(--white);
-            color: var(--black);
-            text-decoration: none;
-            border-radius: 8px;
-            font-weight: 500;
-            transition: all 0.3s ease;
-        }
-
-        .consultation-btn:hover {
-            background: var(--gray-200);
-            transform: translateY(-1px);
-        }
-
-        .consultation-card h4 {
-            font-size: 1.25rem;
-            font-weight: 600;
-            color: var(--white);
-            margin-bottom: 12px;
-        }
-
-        .consultation-card p {
-            color: var(--gray-400);
-            margin-bottom: 20px;
-            line-height: 1.6;
-        }
-
-        .consultation-price {
-            font-size: 1.125rem;
-            font-weight: 600;
-            color: var(--gray-200);
-            padding: 8px 16px;
-            background: var(--gray-700);
-            border-radius: 8px;
-            display: inline-block;
-        }
-
-        /* Footer */
         .footer {
             background: var(--gray-900);
             color: var(--gray-500);
@@ -552,7 +469,6 @@
             font-size: 0.875rem;
         }
 
-        /* Responsive Design */
         @media (max-width: 768px) {
             .nav-links {
                 display: none;
@@ -580,11 +496,7 @@
                 gap: 24px;
             }
 
-            .consultation-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .hero-cta {
+            .hero-cta, .contact-cta {
                 flex-direction: column;
                 align-items: center;
             }
@@ -596,7 +508,6 @@
             }
         }
 
-        /* Smooth animations */
         .fade-in {
             opacity: 0;
             transform: translateY(30px);
@@ -608,7 +519,6 @@
             transform: translateY(0);
         }
 
-        /* Scroll indicator */
         .scroll-indicator {
             position: absolute;
             bottom: 40px;
@@ -632,7 +542,6 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
 </head>
 <body>
-    <!-- Navigation -->
     <nav class="nav">
         <div class="container">
             <div class="nav-content">
@@ -648,7 +557,6 @@
         </div>
     </nav>
 
-    <!-- Hero Section -->
     <section class="hero" id="home">
         <div class="container">
             <div class="hero-content">
@@ -675,7 +583,6 @@
         </div>
     </section>
 
-    <!-- Services Section -->
     <section class="section" id="services">
         <div class="container">
             <div class="section-header">
@@ -755,7 +662,6 @@
         </div>
     </section>
 
-    <!-- Expertise Section -->
     <section class="section expertise" id="expertise">
         <div class="container">
             <div class="section-header">
@@ -817,7 +723,6 @@
         </div>
     </section>
 
-    <!-- Testimonials Section -->
     <section class="section">
         <div class="container">
             <div class="section-header">
@@ -830,44 +735,37 @@
             <div class="testimonials-grid">
                 <div class="testimonial-card fade-in">
                     <div class="testimonial-content">
-                        <p>"Rarely I meet a person like Simardeep. He has a thorough understanding of data engineering, high-performance computing, modern cloud deployment with K8s. Being working in this industry 30 years at various positions, large projects, international corporations, governments, and startups on 3 major continents, he is highly recommended."</p>
+                        <p>Rarely I meet a person like Simardeep. He has a thorough understanding of data engineering, high-performance computing, modern cloud deployment with K8s. Being working in this industry 30 years at various positions, large projects, international corporations, governments, and startups on 3 major continents, he is highly recommended.</p>
                     </div>
                     <div class="testimonial-author">
-                        <div class="author-info">
-                            <div class="author-name">Nghia Doan</div>
-                            <div class="author-title">Technology Pioneer, PHAC</div>
-                        </div>
+                        <div class="author-name">Nghia Doan</div>
+                        <div class="author-title">Technology Pioneer, PHAC</div>
                     </div>
                 </div>
 
                 <div class="testimonial-card fade-in">
                     <div class="testimonial-content">
-                        <p>"Simardeep is an exceptional engineer who directly supported several teams in the rapid development and delivery of data systems to support public health. He was always professional, disciplined, and focused on delivery."</p>
+                        <p>Simardeep is an exceptional engineer who directly supported several teams in the rapid development and delivery of data systems to support public health. He was always professional, disciplined, and focused on delivery.</p>
                     </div>
                     <div class="testimonial-author">
-                        <div class="author-info">
-                            <div class="author-name">Chris Allison</div>
-                            <div class="author-title">Director General, PHAC</div>
-                        </div>
+                        <div class="author-name">Chris Allison</div>
+                        <div class="author-title">Director General, PHAC</div>
                     </div>
                 </div>
 
                 <div class="testimonial-card fade-in">
                     <div class="testimonial-content">
-                        <p>"I've never seen anyone embrace and embody 'constant improvement' like Simardeep. Talented, kind, and professional, I've complete confidence on his skills to target complex projects."</p>
+                        <p>I've never seen anyone embrace and embody 'constant improvement' like Simardeep. Talented, kind, and professional, I've complete confidence on his skills to target complex projects.</p>
                     </div>
                     <div class="testimonial-author">
-                        <div class="author-info">
-                            <div class="author-name">Dr. Andrés Solís Montero</div>
-                            <div class="author-title">Lead Data Scientist, Statistics Canada</div>
-                        </div>
+                        <div class="author-name">Dr. Andrés Solís Montero</div>
+                        <div class="author-title">Lead Data Scientist, Statistics Canada</div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- About Section -->
     <section class="section expertise" id="about">
         <div class="container">
             <div class="section-header">
@@ -914,7 +812,6 @@
         </div>
     </section>
 
-    <!-- Contact Section -->
     <section class="section contact" id="contact">
         <div class="container">
             <div class="section-header">
@@ -964,7 +861,6 @@
         </div>
     </section>
 
-    <!-- Footer -->
     <footer class="footer">
         <div class="container">
             <p>&copy; 2025 Simardeep Singh. All rights reserved.</p>
@@ -972,7 +868,6 @@
     </footer>
 
     <script>
-        // Smooth scrolling
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
@@ -986,7 +881,6 @@
             });
         });
 
-        // Fade in animation on scroll
         const observerOptions = {
             threshold: 0.1,
             rootMargin: '0px 0px -50px 0px'
@@ -1004,13 +898,14 @@
             observer.observe(el);
         });
 
-        // Hide scroll indicator after scrolling
         window.addEventListener('scroll', function() {
             const scrollIndicator = document.querySelector('.scroll-indicator');
-            if (window.scrollY > 100) {
-                scrollIndicator.style.opacity = '0';
-            } else {
-                scrollIndicator.style.opacity = '1';
+            if (scrollIndicator) {
+                if (window.scrollY > 100) {
+                    scrollIndicator.style.opacity = '0';
+                } else {
+                    scrollIndicator.style.opacity = '1';
+                }
             }
         });
     </script>
